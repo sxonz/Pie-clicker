@@ -5,11 +5,21 @@ public class ClickManager : MonoBehaviour
     public TextMeshProUGUI text;
     public Camera uicamera;
     int score = 0;
+    int lasttime;
     public RectTransform mainpanelRect;
     public RectTransform[] nonClickableRects;
+    void Read()
+    {
+        score = PlayerPrefs.GetInt("score");
+    }
+    void Write()
+    {
+        PlayerPrefs.SetInt("score", score);
+    }
     void Start()
     {
-
+        Read();
+        text.text = score.ToString();
     }
     public bool IsPointInside(RectTransform rect, Vector2 screenPosition)
     {
@@ -18,6 +28,11 @@ public class ClickManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            PlayerPrefs.DeleteAll();
+            score = 0;
+        }
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
             bool flag = true;
@@ -32,5 +47,9 @@ public class ClickManager : MonoBehaviour
                 text.text = score.ToString();
             }
         }
+    }
+    void OnApplicationQuit()
+    {
+        Write();
     }
 }
