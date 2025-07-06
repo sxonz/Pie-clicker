@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 283529334}
   - component: {fileID: 283529333}
   m_Layer: 5
-  m_Name: DiamondValue
+  m_Name: PieValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4424,7 +4424,7 @@ GameObject:
   - component: {fileID: 1348045724}
   - component: {fileID: 1348045723}
   m_Layer: 5
-  m_Name: DiamondImage
+  m_Name: PieImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6655,7 +6655,7 @@ GameObject:
   - component: {fileID: 2111136005}
   - component: {fileID: 2111136004}
   m_Layer: 5
-  m_Name: DiamondPanel
+  m_Name: PiePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
