@@ -1,20 +1,20 @@
+using System;
 using UnityEngine;
 
 public class CoinEffect : MonoBehaviour
 {
-    float speed = 0.02f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    float speed = 3;
+    RectTransform tr;
     void Start()
     {
-        Destroy(this.gameObject, 1f);
+        Destroy(this.gameObject, 0.5f);
+        tr = GetComponent<RectTransform>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        Vector2 pos = GetComponent<RectTransform>().position;
-        pos += Vector2.up * speed;
-        speed = Mathf.Max(speed - 0.001f, 0f);
-        GetComponent<RectTransform>().position = pos;
+        Vector2 pos = tr.position;
+        pos += Vector2.up * speed * Time.fixedDeltaTime;
+        speed = Mathf.Max(speed - 0.1f, 0f);
+        tr.position = pos;
     }
 }
