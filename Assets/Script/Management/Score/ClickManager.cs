@@ -15,8 +15,7 @@ public class ClickManager : MonoBehaviour
     public GameObject pi;
     public GameObject eff;
     int lasttime;
-    public RectTransform mainpanelRect;
-    public RectTransform[] nonClickableRects;
+    public GameObject[] nonClickables;
     void Read()
     {
         score = PlayerPrefs.GetInt("score");
@@ -44,21 +43,29 @@ public class ClickManager : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            GameObject tmp = Instantiate(eff, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
-            tmp.transform.SetParent(canvas.transform);
-            tmp.GetComponent<RectTransform>();
             bool flag = true;
             Vector2 mousepos = Input.mousePosition;
-            for (int i = 0; i < nonClickableRects.Length; i++)
+            foreach (GameObject nonClickable in nonClickables)
             {
-                flag &= !IsPointInside(nonClickableRects[i], mousepos);
+                if (nonClickable.activeSelf)
+                {
+                    RectTransform nonClickableRect = new RectTransform();
+                    if (nonClickable.TryGetComponent<RectTransform>(out nonClickableRect))
+                    {
+                        flag &= !IsPointInside(nonClickableRect, mousepos);
+                    }
+                }
             }
-            if (IsPointInside(mainpanelRect, Input.mousePosition) && flag)
+            if (flag)
             {
+                Debug.Log(flag);
                 score += mainIncreasing + accelIncreasing;
                 text.text = score.ToString();
+                GameObject tmp = Instantiate(eff, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+                tmp.transform.SetParent(canvas.transform);
+                tmp.GetComponent<RectTransform>();
+                accelIncreasing = Mathf.Min(mainIncreasing * 2, accelIncreasing + 1);
             }
-            accelIncreasing = Mathf.Min(mainIncreasing * 2, accelIncreasing + 1);
         }
         else
         {

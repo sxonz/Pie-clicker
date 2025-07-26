@@ -4143,7 +4143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &735332077
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5291,9 +5291,15 @@ MonoBehaviour:
   uicamera: {fileID: 519420031}
   pi: {fileID: 308552757}
   eff: {fileID: 3450186097113672297, guid: 1daee44c86e79924ca5131dcbe613515, type: 3}
-  mainpanelRect: {fileID: 1411470301}
-  nonClickableRects:
-  - {fileID: 1204514913}
+  nonClickables:
+  - {fileID: 2118752303}
+  - {fileID: 2042674545}
+  - {fileID: 1348548854}
+  - {fileID: 1204514912}
+  - {fileID: 475890935}
+  - {fileID: 844160029}
+  - {fileID: 735332076}
+  - {fileID: 1378996942}
 --- !u!4 &908815826
 Transform:
   m_ObjectHideFlags: 0
@@ -8676,8 +8682,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1674779338}
   - component: {fileID: 1674779337}
+  - component: {fileID: 1674779339}
   m_Layer: 0
-  m_Name: GameManger
+  m_Name: TabManger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8720,6 +8727,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1674779339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674779336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed0e38de52b7d842a4aa632c9b72df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuTab: {fileID: 0}
 --- !u!1 &1717044437
 GameObject:
   m_ObjectHideFlags: 0
@@ -10267,8 +10287,8 @@ RectTransform:
   - {fileID: 793449708}
   - {fileID: 2111136003}
   - {fileID: 2099388884}
-  - {fileID: 1937048977}
   - {fileID: 2118752304}
+  - {fileID: 1937048977}
   m_Father: {fileID: 335394245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10736,7 +10756,7 @@ GameObject:
   - component: {fileID: 2099388886}
   - component: {fileID: 2099388885}
   m_Layer: 0
-  m_Name: SettingButton
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10780,7 +10800,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.33490568, g: 0.33490568, b: 0.33490568, a: 1}
@@ -10804,7 +10824,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2099388886}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1674779336}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2099388886
 MonoBehaviour:
   m_ObjectHideFlags: 0
