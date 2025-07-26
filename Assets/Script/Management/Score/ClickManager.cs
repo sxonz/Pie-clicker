@@ -58,7 +58,6 @@ public class ClickManager : MonoBehaviour
             }
             if (flag)
             {
-                Debug.Log(flag);
                 score += mainIncreasing + accelIncreasing;
                 text.text = score.ToString();
                 GameObject tmp = Instantiate(eff, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
