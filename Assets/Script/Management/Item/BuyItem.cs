@@ -15,6 +15,7 @@ public class BuyItem : MonoBehaviour
     {
         if (click.pi >= 20)
         {
+            Debug.Log("개 씨발 왜 안돼");
             click.pi -= 20;
             item.AutoClickerCount++;
         }
