@@ -5,14 +5,18 @@ using System.Net.NetworkInformation;
 public class ClickManager : MonoBehaviour
 {
     public GameObject canvas;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI gold_text;
+    public TextMeshProUGUI pi_text;
     public Camera uicamera;
+
+    public int pi = 0;
     int score = 0;
+    
     int mainIncreasing = 1;
     int accelIncreasing = 0;
     int decreaseVel = 10;
     int curDec = 0;
-    public GameObject pi;
+    public GameObject pi_image;
     public GameObject eff;
     int lasttime;
     public GameObject[] nonClickables;
@@ -27,7 +31,7 @@ public class ClickManager : MonoBehaviour
     void Start()
     {
         Read();
-        text.text = score.ToString();
+        gold_text.text = score.ToString();
     }
     public bool IsPointInside(RectTransform rect, Vector2 screenPosition)
     {
@@ -59,7 +63,8 @@ public class ClickManager : MonoBehaviour
             if (flag)
             {
                 score += mainIncreasing + accelIncreasing;
-                text.text = score.ToString();
+                gold_text.text = score.ToString();
+                pi_text.text = pi.ToString();
                 GameObject tmp = Instantiate(eff, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
                 tmp.transform.SetParent(canvas.transform);
                 tmp.GetComponent<RectTransform>();
@@ -78,7 +83,7 @@ public class ClickManager : MonoBehaviour
                 curDec++;
             }
         }
-        pi.transform.Rotate(0, 0, -accelIncreasing * Time.deltaTime * 90);
+        pi_image.transform.Rotate(0, 0, -accelIncreasing * Time.deltaTime * 90);
     }
     void OnApplicationQuit()
     {
