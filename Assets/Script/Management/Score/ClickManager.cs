@@ -11,7 +11,7 @@ public class ClickManager : MonoBehaviour
 
     public int pi = 0;
     int score = 0;
-    
+
     int mainIncreasing = 1;
     int accelIncreasing = 0;
     int decreaseVel = 10;
@@ -40,6 +40,8 @@ public class ClickManager : MonoBehaviour
 
     void Update()
     {
+        pi_text.text = pi.ToString();
+        gold_text.text = score.ToString();
         if (Input.GetKeyDown(KeyCode.K))
         {
             PlayerPrefs.DeleteAll();
@@ -63,8 +65,6 @@ public class ClickManager : MonoBehaviour
             if (flag)
             {
                 score += mainIncreasing + accelIncreasing;
-                gold_text.text = score.ToString();
-                pi_text.text = pi.ToString();
                 GameObject tmp = Instantiate(eff, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
                 tmp.transform.SetParent(canvas.transform);
                 tmp.GetComponent<RectTransform>();
