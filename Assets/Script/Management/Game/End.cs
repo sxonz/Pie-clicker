@@ -17,6 +17,7 @@ public class End : MonoBehaviour
     {
         if (click.pi >= 1000)
         {
+            click.TrueEnd();
             SceneManager.LoadScene(scene);
         }
     }

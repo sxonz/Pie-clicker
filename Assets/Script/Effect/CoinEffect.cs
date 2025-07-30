@@ -1,14 +1,18 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class CoinEffect : MonoBehaviour
 {
+    public int gain;
+    public TextMeshProUGUI value;
     float speed = 3;
     RectTransform tr;
     void Start()
     {
         Destroy(this.gameObject, 0.5f);
         tr = GetComponent<RectTransform>();
+        value.text = "+" + gain.ToString();
     }
     void Update()
     {

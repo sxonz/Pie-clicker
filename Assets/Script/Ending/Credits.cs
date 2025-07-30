@@ -15,7 +15,7 @@ public class Credits : MonoBehaviour
         {
             t += Time.deltaTime;
             text.text = Messages[index];
-            if (t > 3)
+            if (t > 2)
             {
                 t = 0;
                 index++;
